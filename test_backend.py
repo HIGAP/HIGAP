@@ -15,11 +15,11 @@ def home():
     return render_template('homepage.html')
 
 @app.route('/log')
-def login():
+def login_():
     return render_template('login_page.html')
 
 @app.route('/sign')
-def sign_up():
+def sign_up_():
     return render_template('sign_up.html')
     
 @app.route('/login', methods=['POST'])
