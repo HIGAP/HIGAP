@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post It</title>
+    <link rel="stylesheet" href="../styles/post_problem.css">
+</head>
+<body class="dark-mode">
+    <div class="navbar">
+        <a href="homepage.html" class="home-button">Home</a>
+        <div class="username-display" onclick="toggleDropdown()">Guest
+            <div class="dropdown-content" id="dropdown">
+                <a href="#">Profile</a>
+                <a href="#">Settings</a>
+                <button onclick="Logout()">Logout</button>
+                <button onclick="toggleTheme()">Toggle Theme</button>
+            </div>
+        </div>
+    </div>
+
+
+    <h1>Post Something</h1>
+    <form id="postForm">
+        <input type="text" name="title" id="title" placeholder="Title" required>
+        <textarea name="content" id="content" placeholder="Content" required></textarea>
+        <button type="submit">Post</button>
+    </form>
+    <div id="share-container" style="position: relative; margin: 20px;">
+    <button id="share-button" class="share-button">
+        <span class="upload-icon">📤</span> Share
+    </button>
+</div>
+
+<!-- Message Container -->
+<div id="share-message" class="share-message" style="display: none;">
+    Link copied to clipboard!
+</div>
+    <div id="posts-container" class="posts"></div>
+    <button id="load-more" style="display: none;">Load More</button>
+
+    <script src="../scripts/post_problem.js"></script>
+</body>
+</html>
