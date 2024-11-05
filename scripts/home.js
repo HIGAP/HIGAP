@@ -1,5 +1,25 @@
+function getQueryParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    const regex = /([^&=]+)=([^&]*)/g;
+    let match;
+
+    while (match = regex.exec(queryString)) {
+        params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+    }
+    return params;
+}
+
 function loadPosts() {
-    const username = loggedInUsername; // Use the logged-in username variable
+    // Extract the username from the URL
+    const params = getQueryParams();
+    const username = params.username; // Use the username from the URL
+
+    // Check if username is available
+    if (!username) {
+        console.error("No username found in URL");
+        return; // Exit the function if username is not found
+    }
 
     fetch(`https://higap.onrender.com/your_posts?username=${username}&page=${currentPage}`)
         .then(response => {
@@ -14,7 +34,7 @@ function loadPosts() {
                     postElement.className = 'post';
 
                     const titleElement = document.createElement('h3');
-                    titleElement.innerText = post.Title; // Change to post.Title
+                    titleElement.innerText = post.Title; // Assuming post.Title is correct
                     titleElement.classList.add('post-title');
                     postElement.appendChild(titleElement);
 
@@ -35,12 +55,11 @@ function loadPosts() {
                     postElement.appendChild(infoContainer);
 
                     const contentElement = document.createElement('p');
-                    contentElement.innerText = post.post; // Change to post.post
+                    contentElement.innerText = post.post; // Assuming post.post is correct
                     contentElement.classList.add('post-content');
                     contentElement.style.display = 'none';
                     postElement.appendChild(contentElement);
 
-                    postElement.appendChild(contentElement);
                     titleElement.addEventListener('click', () => {
                         contentElement.style.display = contentElement.style.display === 'none' ? 'block' : 'none';
                     });
