@@ -1,0 +1,396 @@
+
+        :root {
+            --background-dark: #121212;
+            --background-light: #f7f7f7;
+            --text-dark: #e0e0e0;
+            --text-light: #333;
+            --heading-color: #82b1ff;
+            --button-bg: #3d5afe;
+            --button-bg-hover: #536dfe;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark and Light mode classes */
+        .dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .light-mode {
+            background-color: var(--background-light);
+            color: var(--text-light);
+        }
+
+        h1, h2 {
+            color: var(--heading-color);
+            margin-top: 20px;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            background-color: #333;
+            padding: 10px;
+            width: 100%;
+        }
+        .home-button {
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #141414
+            transition: background-color 0.3s;
+        }
+        .username-display {
+            position: relative;
+            display: inline-block;
+            color: white;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .username-display:hover {
+            background-color: #555;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #121230;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: white;
+            font: bold;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Coin label styling */
+        #coin-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #121212;
+            margin-top: 10px;
+        }
+
+        #coin-count {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        /* Form styling */
+        form {
+            width: 80%;
+            max-width: 600px;
+            background: #1e1e1e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input, textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #333;
+            background-color: #222;
+            color: #e0e0e0;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #757575;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--button-bg);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--button-bg-hover);
+        }
+
+        /* Posts */
+        .posts {
+            width: 80%;
+            max-width: 600px;
+        }
+
+        /* Styles for the posts */
+.post {
+    border: 1px solid #444;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Title styling */
+.post-title {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+/* User and date info styling */
+.post-user {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+/* Content styling */
+.post-content {
+    font-size: 1em;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+/* Delete Button styling */
+.delete-button {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}
+
+/* Edit Button styling */
+.edit-button {
+    background-color: #5bc0de; /* Light blue */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.edit-button:hover {
+    background-color: #31b0d5; /* Darker blue on hover */
+}
+
+/* View Post Button styling */
+.view-button {
+    background-color: #6c757d; /* Neutral grey */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.view-button:hover {
+    background-color: #5a6268; /* Darker grey on hover */
+}
+
+.share-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.share-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.upload-icon {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.share-message {
+    position: fixed;
+    bottom: 40px; /* 40 pixels up from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 1000; /* Ensure it appears above other content */
+    transition: opacity 2s ease-in-out; /* Fading effect */
+}
+.options-button {
+    background: #3a3a3a; /* Slightly lighter than the post background */
+    border: none;
+    color: #888;
+    font-size: 1.2em;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Makes it circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.options-button:hover {
+    background: #4a4a4a; /* Darker shade on hover for visual feedback */
+    color: #ccc;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background: #2f2f2f;
+    border-radius: 5px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 1;
+    transition: background 0.4s;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    color: #f1f1f1;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-menu button:hover {
+    background: #444;
+}
+
+.edit-button {
+    color: #007bff; /* Blue color for edit */
+}
+
+.delete-button {
+    color: #ff4c4c; /* Red color for delete */
+}
+/* Main post container styling */
+.post {
+    position: relative;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #1f1f1f;
+    color: #f1f1f1;
+    border-radius: 8px;
+}
+
+/* Three-dot options button */
+.options-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    background: #3a3a3a;
+    border: none;
+    border-radius: 50%;
+    color: #888;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.options-button:hover {
+    background: #4a4a4a;
+    color: #ccc;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background: #2f2f2f;
+    border-radius: 5px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    color: #f1f1f1;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+    background: #444;
+}
+
+.edit-button {
+    color: #007bff;
+}
+
+.delete-button {
+    color: #ff4c4c;
+}

@@ -1,0 +1,87 @@
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom right, #121212, #3a3a3a);
+        }
+
+        .login-container {
+            width: 360px;
+            padding: 2em;
+            border-radius: 10px;
+            background: #1f1f1f;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: #f1f1f1;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .login-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .login-container h2 {
+            margin-bottom: 1.5em;
+            color: #e0e0e0;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 0.6em 0;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background: #333;
+            color: #f1f1f1;
+            font-size: 1em;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 1em;
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: #ff4c4c;
+            display: none;
+            margin-top: 1em;
+        }
+
+        /* Responsive styling for mobile devices */
+        @media (max-width: 600px) {
+            .login-container {
+                width: 90%;
+                padding: 1.5em;
+            }
+
+            .login-container h2 {
+                font-size: 1.5em;
+            }
+
+            input[type="text"], input[type="password"] {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            .login-btn {
+                padding: 10px;
+                font-size: 0.95em;
+            }
+        }
