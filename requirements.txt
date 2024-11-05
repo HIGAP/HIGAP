@@ -1,4 +1,4 @@
 flask==3.0.3    
-gunicorn==20.1.0      # WSGI server for serving the app
+gunicorn==20.1.0  test_backend:app    # WSGI server for serving the app
 pandas==2.2.3
 flask_cors == 5.0.0   
