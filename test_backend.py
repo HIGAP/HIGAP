@@ -14,11 +14,11 @@ file_user = 'user_data.csv'
 def home():
     return render_template('homepage.html')
 
-@app.route('/login')
+@app.route('/log')
 def login():
     return render_template('login_page.html')
 
-@app.route('/sign-up')
+@app.route('/sign')
 def sign_up():
     return render_template('sign_up.html')
     
