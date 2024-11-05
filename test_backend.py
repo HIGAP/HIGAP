@@ -10,7 +10,18 @@ CORS(app, supports_credentials=True, resources={r"/*": {"origins": "http://local
 file_post = "post_data2.csv"
 file_user = 'user_data.csv'
 
+@app.route('/')
+def home():
+    return render_template('homepage.html')
 
+@app.route('/login')
+def login():
+    return render_template('login_page.html')
+
+@app.route('/sign-up')
+def sign_up():
+    return render_template('sign_up.html')
+    
 @app.route('/login', methods=['POST'])
 def login():
     df = pd.read_csv(file_user)
