@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Form data to submit:", formData); // To see data being submitted
 
 
-        fetch('http://127.0.0.1:5000/sign_up', {
+        fetch('https://higap.onrender.com/sign_up', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
