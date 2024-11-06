@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../styles/sign_up.css">
+    <link src="{{ url_for('static', filename='styles/sign_up.css') }}"></link>
+
 </head>
 <body>
     <div class="signup-container">
@@ -19,6 +20,7 @@
         <p class="error-message" id="error-message">Passwords do not match.</p>
     </div>
 
-    <script src="../scripts/sign_up.js"></script>
+    <script src="{{ url_for('static', filename='scripts/sign_up.js') }}"></script>
+
 </body>
 </html>
