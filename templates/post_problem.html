@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post It</title>
-    <link rel="stylesheet" href="../styles/post_problem.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/post_problem.css') }}">
 </head>
 <body class="dark-mode">
     <div class="navbar">
-        <a href="homepage.html" class="home-button">Home</a>
+        <a href="{{ url_for('homepage') }}" class="home-button">Home</a> <!-- Assuming you have a 'homepage' route -->
         <div class="username-display" onclick="toggleDropdown()">Guest
             <div class="dropdown-content" id="dropdown">
                 <a href="#">Profile</a>
@@ -19,7 +19,6 @@
         </div>
     </div>
 
-
     <h1>Post Something</h1>
     <form id="postForm">
         <input type="text" name="title" id="title" placeholder="Title" required>
@@ -27,18 +26,19 @@
         <button type="submit">Post</button>
     </form>
     <div id="share-container" style="position: relative; margin: 20px;">
-    <button id="share-button" class="share-button">
-        <span class="upload-icon">📤</span> Share
-    </button>
-</div>
+        <button id="share-button" class="share-button">
+            <span class="upload-icon">📤</span> Share
+        </button>
+    </div>
 
-<!-- Message Container -->
-<div id="share-message" class="share-message" style="display: none;">
-    Link copied to clipboard!
-</div>
+    <!-- Message Container -->
+    <div id="share-message" class="share-message" style="display: none;">
+        Link copied to clipboard!
+    </div>
+    
     <div id="posts-container" class="posts"></div>
     <button id="load-more" style="display: none;">Load More</button>
 
-    <script src="../scripts/post_problem.js"></script>
+    <script src="{{ url_for('static', filename='scripts/post_problem.js') }}"></script>
 </body>
 </html>
