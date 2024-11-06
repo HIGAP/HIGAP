@@ -35,7 +35,7 @@ let currentPage = 1;
 function loadPosts() {
     const username = loggedInUsername; // Use the logged-in username variable
 
-    fetch(`http://127.0.0.1:5000/your_posts?username=${username}&page=${currentPage}`)
+    fetch(`https://higap.onrender.com/your_posts?username=${username}&page=${currentPage}`)
         .then(response => response.json())
         .then(posts => {
             if (posts.length) {
@@ -118,7 +118,7 @@ document.getElementById('postForm')?.addEventListener('submit', function (event)
     const title = document.getElementById('title').value;
     const content = document.getElementById('content').value;
 
-    fetch('http://127.0.0.1:5000/post', {
+    fetch('https://higap.onrender.com/post', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -148,7 +148,7 @@ document.getElementById('postForm')?.addEventListener('submit', function (event)
 
 // Logout function
 function logout() {
-    fetch('http://127.0.0.1:5000/logout', {
+    fetch('https://higap.onrender.com/logout', {
         method: 'POST',
         credentials: 'include', // Include session cookies in the request
         headers: {
@@ -199,7 +199,7 @@ document.getElementById('share-button').addEventListener('click', function () {
     });
 });
 function deletePost(postId) {
-    fetch(`http://127.0.0.1:5000/delete_post`, {
+    fetch(`https://higap.onrender.com/delete_post`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
