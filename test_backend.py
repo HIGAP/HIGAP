@@ -6,10 +6,12 @@ import pandas as pd
 
 app = Flask(__name__)
 # Configure CORS to allow requests from your frontend origin and with credentials
-CORS(app, supports_credentials=True, resources={r"/*": {"origins": "http://localhost:63342"}})
+CORS(app, supports_credentials=True)
 file_post = "post_data2.csv"
 file_user = 'user_data.csv'
-
+@app.route("/post_prob")
+def redirect_post(): 
+    return render_template("post_problem.html")
 @app.route('/')
 def home():
     return render_template('homepage.html')
