@@ -19,7 +19,8 @@
             const data = await response.json();
 
             if (data.success) {
-  window.location.href = `post_problem.html?username=${encodeURIComponent(username)}`;
+  window.location.href = `https://higap.onrender.com/post_problem.html?username=${encodeURIComponent(username)}`;
+
 
 }
            else {
