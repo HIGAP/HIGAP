@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Form data to submit:", formData); // To see data being submitted
 
 
-        fetch('http://127.0.0.1:5000/sign_up', {
+        fetch('https://higap.onrender.com/sign_up', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (data.status == 'success') {
                 alert("Account created successfully!");
                 console.log (data.success, data.message, "Success!","redirecting to login page...");
-                window.location.href = 'login_page.html'; // Redirect to login page if needed
+                window.location.href = 'https://higap.onrender.com/log';
+
             } else {
                 errorMessage.textContent = data.message;
                 errorMessage.style.display = 'block';
