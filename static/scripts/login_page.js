@@ -29,8 +29,8 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
                 });
 
                 if (postProbResponse.ok) {
-                    // Successfully posted problem, now redirect or render template as needed
-                    window.location.href = '/post_problem.html'; // Adjust as necessary
+                    // Successfully posted problem, now redirect to the post_problem page with the username
+                    window.location.href = `/post_problem.html?username=${username}`;
                 } else {
                     // Handle error if post_prob request fails
                     document.getElementById('error').innerText = 'Failed to post problem. Please try again.';
