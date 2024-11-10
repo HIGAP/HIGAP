@@ -9,9 +9,10 @@ app = Flask(__name__)
 CORS(app, supports_credentials=True)
 file_post = "post_data2.csv"
 file_user = 'user_data.csv'
-@app.route("/post_prob")
+@app.route("/post_prob",methods = ["POST"})
 def redirect_post(): 
-    return render_template("post_problem.html")
+    username = request.get_json().get('username')
+    return redirect(url_for('post_problem', username=username))
 @app.route('/')
 def home():
     return render_template('homepage.html')
