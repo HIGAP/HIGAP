@@ -12,13 +12,9 @@ file_user = 'user_data.csv'
 @app.route("/post_prob",methods = ["POST"])
 def redirect_post(): 
     username = request.get_json().get('username')
-    return redirect(url_for('post_problem', username=username))
-
-@app.route("/post_problem")
-def post_problem():
-    username = request.args.get('username')
     print('link that is being sent:',render_template("post_problem.html", username=username))
-    return render_template("post_problem.html", username=username)
+    return redirect(url_for(render_template("post_problem.html", username=username), username=username))
+
 @app.route('/')
 def home():
     return render_template('homepage.html')
