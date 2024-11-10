@@ -19,7 +19,14 @@
             const data = await response.json();
 
             if (data.success) {
-  window.location.href = `https://higap.onrender.com/post_problem.html?username=${encodeURIComponent(username)}`;
+  fetch('https://higap.onrender.com/post_prob', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',  // Include credentials in the request
+            body: JSON.stringify({ username })
+        });
 
 
 }
