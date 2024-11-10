@@ -18,24 +18,34 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             const loginData = await loginResponse.json();
 
             if (loginData.success) {
-                // Login successful, proceed to post_prob request
-                const postProbResponse = await fetch('https://higap.onrender.com/post_prob', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    credentials: 'include',  // Include credentials in the request
-                    body: JSON.stringify({ username })
-                });
+    // Login successful, proceed to post_prob request
+    const postProbResponse = await fetch('https://higap.onrender.com/post_prob', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',  // Include credentials in the request
+        body: JSON.stringify({ username })
+    });
 
-                if (postProbResponse.ok) {
-                    // Successfully posted problem, now redirect to the post_problem page with the username
-                    window.location.href = `/post_problem.html?username=${username}`;
-                } else {
-                    // Handle error if post_prob request fails
-                    document.getElementById('error').innerText = 'Failed to post problem. Please try again.';
-                    document.getElementById('error').style.display = 'block';
-                }
+    if (postProbResponse.ok) {
+        // Get the URL from the response
+        const postProbData = await postProbResponse.json();
+
+        if (postProbData.url) {
+            // Redirect to the URL returned by Flask
+            window.location.href = postProbData.url;
+        } else {
+            document.getElementById('error').innerText = 'Invalid response from server.';
+            document.getElementById('error').style.display = 'block';
+        }
+    } else {
+        // Handle error if post_prob request fails
+        document.getElementById('error').innerText = 'Failed to post problem. Please try again.';
+        document.getElementById('error').style.display = 'block';
+    }
+}
+
             } else {
                 // Show error if login fails
                 document.getElementById('error').innerText = loginData.message || 'Login failed. Please try again.';
