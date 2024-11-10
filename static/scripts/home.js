@@ -1,3 +1,31 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username'); // Get the username from the URL
+    const navButtonsContainer = document.getElementById('nav-buttons');
+
+    if (username) {
+        // If the username exists in the URL, display the username and "Post Your Problem" button
+        navButtonsContainer.innerHTML = `
+            <span class="username">${username}</span>
+            <button class="post-problem-btn" onclick="postProblem()">Post Your Problem</button>
+        `;
+    } else {
+        // Otherwise, show the Login and Sign In buttons
+        navButtonsContainer.innerHTML = `
+            <button onclick="callLogRoute()">Login</button>
+            <button onclick="callSignRoute()">Sign In</button>
+        `;
+    }
+});
+
+async function postProblem() {
+    const username = new URLSearchParams(window.location.search).get('username');
+    if (username) {
+        window.location.href = `https://higap.onrender.com/post_problem.html?username=${username}`;
+    } else {
+        console.error("No username found.");
+    }
+}
 function loadPosts() {
     const username = loggedInUsername; // Use the logged-in username variable
 
@@ -56,6 +84,12 @@ function loadPosts() {
         })
         .catch(error => console.error("Error loading posts:", error));
 }
+
+
+
+
+
+
 async function callLogRoute() {
     try {
         console.log("callLogRoute function triggered"); 
