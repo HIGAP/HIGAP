@@ -17,6 +17,7 @@ def redirect_post():
 @app.route("/post_problem")
 def post_problem():
     username = request.args.get('username')
+    print('link that is being sent:',render_template("post_problem.html", username=username))
     return render_template("post_problem.html", username=username)
 @app.route('/')
 def home():
