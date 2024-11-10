@@ -22,7 +22,9 @@ def post_problem():
 @app.route('/')
 def home():
     return render_template('homepage.html')
-
+@app.route("/homepage")
+def home_(): 
+    return render_template("homepage.html")
 @app.route('/log')
 def login_():
     return render_template('login_page.html')
