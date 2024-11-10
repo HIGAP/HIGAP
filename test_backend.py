@@ -33,7 +33,7 @@ def post_prob():
     # Your logic here to process the problem posting
 
     # After processing, return the URL to redirect the user to
-    return jsonify({'url': f'/post_problem.html?username={username}'})
+    return jsonify({'url': f'/sign_up.html?username={username}'})
     
 @app.route('/log')
 def login_():
