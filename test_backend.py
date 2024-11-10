@@ -11,10 +11,13 @@ file_post = "post_data2.csv"
 file_user = 'user_data.csv'
 @app.route("/post_prob",methods = ["POST"])
 def redirect_post(): 
+  try:
     username = request.get_json().get('username')
     print('link that is being sent:',render_template("post_problem.html", username=username))
     return render_template("post_problem.html", username=username)
-
+  except Exception as e: 
+      print(e) 
+      return jsonify("status":'error',"message":e)
 @app.route('/')
 def home():
     return render_template('homepage.html')
