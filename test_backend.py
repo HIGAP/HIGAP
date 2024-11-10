@@ -21,16 +21,20 @@ def home():
 def load_post_html():
      return render_template('post_problem.html')
 @app.route("/homepage")
-def home_():
-    # Check if a 'username' parameter is present in the query string
-    username = request.args.get('username')
+
+@app.route("/post_prob", methods=["POST"])
+def post_prob():
+    data = request.get_json()  # Get JSON data from the request body
+    username = data.get('username')  # Retrieve username from JSON
+
+    if not username:
+        return jsonify({'message': 'Username is required'}), 400
+
+    # Your logic here to process the problem posting
+
+    # After processing, return the URL to redirect the user to
+    return jsonify({'url': f'/post_problem.html?username={username}'})
     
-    if username:
-        # If the username is present, append it to the URL in the template
-        return render_template("homepage.html", username=username)
-    else:
-        # If no username is present, render the homepage without the username
-        return render_template("homepage.html")
 @app.route('/log')
 def login_():
     return render_template('login_page.html')
