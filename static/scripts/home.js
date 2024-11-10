@@ -58,6 +58,7 @@ function loadPosts() {
 }
 async function callLogRoute() {
     try {
+        console.log("callLogRoute function triggered"); 
         const response = await fetch('https://higap.onrender.com/log', {
             method: 'GET',
             headers: {
@@ -78,6 +79,7 @@ async function callLogRoute() {
 }
 async function callSignRoute() {
     try {
+        console.log("callSignRoute function triggered"); 
         const response = await fetch('https://higap.onrender.com/sign', {
             method: 'GET',
             headers: {
