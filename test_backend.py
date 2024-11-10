@@ -11,18 +11,24 @@ file_post = "post_data2.csv"
 file_user = 'user_data.csv'
 @app.route("/post_prob",methods = ["POST"])
 def redirect_post(): 
-  try:
+
     username = request.get_json().get('username')
-    print('link that is being sent:',render_template("post_problem.html", username=username))
-    return render_template("post_problem.html", username=username)
-  except Exception as e: 
-      print(e) 
+    return redirect(url_for('homepage'))
 @app.route('/')
 def home():
     return render_template('homepage.html')
+
 @app.route("/homepage")
-def home_(): 
-    return render_template("homepage.html")
+def home_():
+    # Check if a 'username' parameter is present in the query string
+    username = request.args.get('username')
+    
+    if username:
+        # If the username is present, append it to the URL in the template
+        return render_template("homepage.html", username=username)
+    else:
+        # If no username is present, render the homepage without the username
+        return render_template("homepage.html")
 @app.route('/log')
 def login_():
     return render_template('login_page.html')
