@@ -17,7 +17,6 @@ def redirect_post():
     return render_template("post_problem.html", username=username)
   except Exception as e: 
       print(e) 
-      return jsonify("status":'error',"message":e)
 @app.route('/')
 def home():
     return render_template('homepage.html')
