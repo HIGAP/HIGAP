@@ -56,3 +56,43 @@ function loadPosts() {
         })
         .catch(error => console.error("Error loading posts:", error));
 }
+async function callLogRoute() {
+    try {
+        const response = await fetch('https://higap.onrender.com/log', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'text/html'
+            },
+            credentials: 'include'  // Include credentials if needed for authentication
+        });
+
+        if (response.ok) {
+            // If the response is successful, redirect the user to the login page
+            window.location.href = response.url;
+        } else {
+            console.error('Failed to load the log route.');
+        }
+    } catch (error) {
+        console.error('Error calling /log route:', error);
+    }
+}
+async function callSignRoute() {
+    try {
+        const response = await fetch('https://higap.onrender.com/sign', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'text/html'
+            },
+            credentials: 'include'  // Include credentials if needed for authentication
+        });
+
+        if (response.ok) {
+            // If the response is successful, redirect the user to the login page
+            window.location.href = response.url;
+        } else {
+            console.error('Failed to load the sign route.');
+        }
+    } catch (error) {
+        console.error('Error calling /sign route:', error);
+    }
+}
