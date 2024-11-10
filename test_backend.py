@@ -17,7 +17,9 @@ def redirect_post():
 @app.route('/')
 def home():
     return render_template('homepage.html')
-
+@app.route("/p")
+def load_post_html():
+     return render_template('post_problem.html')
 @app.route("/homepage")
 def home_():
     # Check if a 'username' parameter is present in the query string
