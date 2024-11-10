@@ -13,7 +13,7 @@ file_user = 'user_data.csv'
 def redirect_post(): 
     username = request.get_json().get('username')
     print('link that is being sent:',render_template("post_problem.html", username=username))
-    return redirect(url_for(render_template("post_problem.html", username=username), username=username))
+    return render_template("post_problem.html", username=username)
 
 @app.route('/')
 def home():
