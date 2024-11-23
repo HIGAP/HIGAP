@@ -20,12 +20,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function postProblem() {
     const username = new URLSearchParams(window.location.search).get('username');
+    
     if (username) {
-        window.location.href = `https://higap.onrender.com/post_problem.html?username=${username}`;
+        try {
+            const response = await fetch('https://higap.onrender.com/post_prob', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username })
+            });
+
+            // Check if the response is successful
+            if (response.ok) {
+                const data = await response.json();
+                // Redirect to the received URL from the response
+                window.location.href = data.url;
+            } else {
+                console.error("Error:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
     } else {
         console.error("No username found.");
     }
 }
+
 function loadPosts() {
     const username = loggedInUsername; // Use the logged-in username variable
 
