@@ -19,7 +19,7 @@ def home():
     return render_template('homepage.html')
 
 @app.route("/load_pp", methods=["GET", "POST"])
-def post_prob():
+def loadpost_prob():
     # Retrieve the query parameters (username and page) from the URL
     username = request.args.get('username', default=None)  # Username (from frontend)
     page = int(request.args.get('page', default=1))  # Page number (default is 1)
