@@ -29,7 +29,7 @@ async function postProblem() {
 function loadPosts() {
     const username = loggedInUsername; // Use the logged-in username variable
 
-    fetch(`http://127.0.0.1:5000/your_posts?username=${username}&page=${currentPage}`)
+    fetch(`https://higap.onrender.com/your_posts?username=${username}&page=${currentPage}`)
         .then(response => {
             console.log('Posts response:', response);
             return response.json();
