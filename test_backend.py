@@ -13,15 +13,21 @@ file_user = 'user_data.csv'
 def redirect_post(): 
 
     username = request.get_json().get('username')
-    return redirect(url_for('homepage'))
+    return redirect(url_for('load_pp'))
 @app.route('/')
 def home():
     return render_template('homepage.html')
-@app.route("/p")
-def load_post_html():
-     return render_template('post_problem.html')
-@app.route("/homepage")
 
+@app.route("/load_pp", methods=["GET", "POST"])
+def post_prob():
+    # Retrieve the query parameters (username and page) from the URL
+    username = request.args.get('username', default=None)  # Username (from frontend)
+    page = int(request.args.get('page', default=1))  # Page number (default is 1)
+
+    # You can add logic here to fetch posts based on username and page
+
+    # Pass the username and page parameters to the template
+    return render_template('post_problem.html', username=username, page=page)
 @app.route("/post_prob", methods=["POST"])
 def post_prob():
     data = request.get_json()  # Get JSON data from the request body
