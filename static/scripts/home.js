@@ -23,7 +23,7 @@ async function postProblem() {
     
     if (username) {
         try {
-            const response = await fetch('https://higap.onrender.com/post_prob', {
+            const response = await fetch('https://higap.onrender.com/post_prob_', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
